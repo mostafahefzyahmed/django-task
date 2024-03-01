@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block contect %}
+<div class='container'>
+
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <fieldset>
+        <div class="mb-3">
+
+    <label class="form-label"> Name: </label>
+    <input class="form-control" type='text' name='name' value={{Product.name}}  required>
+</div>
+<div class="mb-3">
+
+    <label class="form-label"> Price: </label>
+    <input class="form-control" type='text' name='price' value={{Product.price}} required>
+</div>
+
+    <div class="mb-3">
+
+    <label class="form-label"> Details: </label>
+    <input class="form-control" type='text' name='details' value={{Product.details}}  required>
+</div>
+
+    <div class="mb-3">
+
+    <label > Image: </label>
+    <input class="form-control" type='file' name='image'   required>
+</div>
+
+    <div class="mb-3">
+
+    <label>Category:</label>
+    <select name="category">
+        {% for category in categories %}
+            <option value="{{ category.id }}" {% if category.id == Product.category.id %}selected{% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+</form>
+</div>
+
+
+{% endblock contect %}

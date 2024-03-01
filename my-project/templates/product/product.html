@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block contect %}
+<h1 class='text-center' >PRODUCTS</h1>
+{% comment %} <table class border = "1" width = '100%'   %>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>price</th>
+        <th>details</th>
+        <th>image</th>
+        <th>catecory</th>
+        <th>action</th>
+    </tr> {% endcomment %}
+    
+    {% comment %} <tr>
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.details}}</td>
+        <td><img class="w-50" src="{{ p.image.url }}"></td>
+        <td>{{ p.category.name }}</td>
+        <td>
+            
+            <a href='{% url "updateProducts" p.id %}' >Update</a>
+            <a href='{% url "delProducts" p.id %}' >Delete</a>
+            
+        </td>
+    </tr> {% endcomment %}
+    <div class='container'>
+        
+        <div class='row '>
+        {% for p in data  %}
+        <div class='col-3'>
+
+            <div class="card  " style="width: 18rem;">
+                
+                <img class="w-75 " src="{{ p.image.url }}">
+                <div class="card-body">
+                <h5 class="card-title">{{p.name}}</h5>
+                    <h5 class="card-title">{{p.price}}</h5>
+                    <h5 class="card-title">{{p.details}}</h5>
+                    <h5 class="card-title">{{p.category.name}}</h5>
+                    <a class='nav-link' href='{% url "updateProducts" p.id %}' >Update</a>
+                    <a class='nav-link' href='{% url "delProducts" p.id %}' >Delete</a>
+                </div>
+                    
+            </div>
+                </div>
+                {% endfor %} 
+            </div>
+        </div>
+        
+        
+        
+    {% comment %} </table> {% endcomment %}
+
+    
+
+{% endblock contect %}
+

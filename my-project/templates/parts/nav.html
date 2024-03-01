@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href='{% url "home" %}'> HOME </a>
+        </li>
+        <li class="nav-item">
+          <span>
+            <a class="nav-link" href='{% url "tracks" %}'> TRACKS </a>
+          </span>
+        </li>
+        <li class="nav-item">
+          <span>
+            <a class="nav-link" href='{% url "product" %}'> PRODUCT </a>
+          </span>
+        </li>
+        <span>
+          <a class="nav-link" href='{% url "getCategory" %}'>list Category </a>
+        </span>
+        <li>
+          <a class="nav-link" href='{% url "addCategory" %}'> addCategory </a>
+        </li>
+
+        <li>
+          <a class="nav-link" href='{% url "addProducts" %}'> Add Product </a>
+        </li>
+
+        <li>
+          <p class='mr-5 ml-5 mt-2' >Welcom {{user}}</p>
+        </li>
+
+        <div >
+          <li >
+            {% if user.is_authenticated %}
+            <form  method="post" action="{% url 'logout'%} ">
+              {% csrf_token %}
+              <input class="btn btn-danger" type="submit" value="logout" />
+            </form>
+            {% else %}
+            <a class=' btn btn-dark' href="{%url 'registration'%}">Register</a>
+            <a class='  btn btn-dark' href="{%url 'login'%}">login</a>
+            {% endif %}
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>

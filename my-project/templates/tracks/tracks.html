@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block contect %}
+
+<table border = "1" width = '100%'   %>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>action</tr>
+        </tr>
+        {% for track in Data  %}
+        
+        <tr>
+            <td>{{track.id}}</td>
+            <td>{{track.name}}</td>
+            <td>
+                <a>Show</a>
+                <a>Update</a>
+                <a>Delete</a>
+            </td>
+        </tr>
+        
+        
+        {% endfor %} 
+        
+    </table>
+{% endblock contect %}

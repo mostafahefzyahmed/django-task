@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+
+{% block contect %}
+
+<table class=table   %>
+    <thead>
+
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            
+        </tr>
+    </thead>
+        {% for c in Data  %}
+        
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+        </tr>
+        
+        
+        {% endfor %} 
+        
+    </table>
+
+{% endblock contect %}
+

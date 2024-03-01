@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block contect %}
+<h1 class='text-center mt-2'>Add a new product</h1>
+<form method="post" enctype="multipart/form-data" class='text-center mt-5'>
+    {% csrf_token %}
+    
+
+  {{form}}
+
+  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+</form>
+{% endblock contect %}
